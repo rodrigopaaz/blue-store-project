@@ -1,7 +1,7 @@
 const {
   Product, Search, Category, Site,
 } = require('../models');
-const site = require('./data/buscapeData');
+const { buscapeData } = require('./data');
 
 const findAll = () => {
   const data = Product.findAll({
@@ -15,7 +15,7 @@ const findAll = () => {
 };
 
 const createMany = async (name, category, search) => {
-  const buscape = await site(name, category, search);
+  const buscape = await buscapeData(category, search);
   Product.bulkCreate(buscape);
   return JSON.stringify(buscape);
 };

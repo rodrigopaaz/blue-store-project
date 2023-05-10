@@ -1,9 +1,10 @@
 /* eslint-disable no-undef */
-import React, { useContext } from 'react'
-import post from '../services/requests'
+import React, { useContext, useEffect, useState } from 'react'
+import post, { getCategories } from '../services/requests'
 import AppContext from '../context/Context'
 
 export default function Inputs () {
+  const [categor, setCategor] = useState([])
   const {
     setProducts,
     setIsLoading,
@@ -14,6 +15,16 @@ export default function Inputs () {
     site,
     setSite
   } = useContext(AppContext)
+
+  const getCategory = async () => {
+    const categ = await getCategories()
+    console.log(categ)
+    setCategor(categ)
+  }
+
+  useEffect(() => {
+    getCategory()
+  }, [])
 
   const siteSwitch = async () => {
     setIsLoading(true)
@@ -59,9 +70,7 @@ export default function Inputs () {
           <option value="" disabled selected hidden>
             Categorias
           </option>
-          <option value="geladeira">Geladeira</option>
-          <option value="tv">TV</option>
-          <option value="celular">Celular</option>
+          {categor.map((e, i) => <option key={i} value={e.name}>{e.name}</option>)}
         </select>
       </label>
 
