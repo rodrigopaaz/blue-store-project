@@ -13,8 +13,10 @@
     "eslint": "^8.40.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.27.5",
-    "husky": "^8.0.3",
-    "install": "^0.13.0",
-    "lint-staged": "^13.2.2"
+    "lint-staged": "^13.2.2",
+    "nodemon": "2.0.15",
+    "sequelize": "^6.31.0",
+    "sequelize-cli": "^6.6.0"
+
   }
 }
