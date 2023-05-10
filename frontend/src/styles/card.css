@@ -1,0 +1,107 @@
+@media only screen and (max-width: 450px){
+    .div__item__card{
+        display: flex;
+        flex-direction: column;
+        background-color:  #ffff;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        padding: 30px 10px;
+        font-weight: 700;
+    }
+
+    .div__item__card a {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+    
+    .div__item__card p:nth-child(2){
+       font-size: 2em;
+       font-weight: 900;
+    }
+    
+    .product__title{
+       font-size: 2em;
+       color: rgb(0, 0, 0);
+       font-weight: 900;
+       text-shadow: 1px 1px rgb(63, 63, 63);
+    }
+    
+    .div__items div img{
+        min-width: 5em;
+        max-width: 10em;
+    }
+    .div__item__card div:nth-child(2){
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+    
+    .div__item__card div:nth-child(2){
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .link{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        width: 15em;
+        height: 3em;
+        color: rgb(58, 58, 58);
+    }
+}
+
+
+@media only screen and (min-width: 451px) and (max-width: 2600px){
+    .div__item__card{
+        display: flex;
+        background-color:  #ffff;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        padding: 30px 10px;
+        font-weight: 700;
+    }
+    
+    .div__item__card p:nth-child(2){
+       font-size: 2em;
+       font-weight: 900;
+    }
+    
+    .product__title{
+       font-size: 2em;
+       color: rgb(2, 2, 2);
+       font-weight: 900;
+       text-shadow: 1px 1px rgb(63, 63, 63);
+    }
+    
+    .div__items div img{
+        max-width: 80%;
+    }
+    .div__item__card div{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 60%;
+    }
+    
+    .div__item__card div:nth-child(2){
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .link{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        width: 15em;
+        height: 3em;
+        color: white;
+        background-color: blue;
+    }
+}
