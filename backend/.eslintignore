@@ -1,0 +1,5 @@
+src/model
+src/seeders
+src/controller
+src/services
+src/migrations
