@@ -1,33 +1,20 @@
-/* eslint-disable react/react-in-jsx-scope */
-import { useContext } from 'react'
+import React from 'react'
 import './styles/app.css'
-import ItemCard from './components/ItemCard'
-import Loading from './components/Loading'
-import Inputs from './components/Inputs'
-import AppContext from './context/Context'
+
+import { Route, Switch, Redirect } from 'react-router-dom'
+import Main from './pages/Main'
+import Search from './pages/Search'
+import Prices from './pages/Prices'
 
 function App () {
-  const { products, isLoading, category, site } = useContext(AppContext)
-  const items = () => (
-    <div className="div__items">
-      {!isLoading
-        ? (
-            products.map((item, id) => <ItemCard product={item} key={id}/>)
-          )
-        : (
-        <Loading />
-          )}
-    </div>
-  )
-  const message = () => {
-    if (!products.length) {
-      return <h4>Selecione acima o que procura</h4>
-    }
-  }
   return (
     <div className="App">
-      <Inputs />
-      {site && category ? items() : message()}
+      <Switch>
+        <Route exact path="/" render={ () => <Redirect to="/main" /> } />
+        <Route exact path="/main" component={ Main } />
+        <Route exact path="/search" component={ Search } />
+        <Route exact path="/products/compare" component={ Prices } />
+      </Switch>
     </div>
   )
 }

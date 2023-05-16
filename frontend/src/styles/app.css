@@ -10,78 +10,15 @@
     justify-content: center;
 }
 
-.div__inputs{
-    display: flex;
-    width: 60%;
-    align-items: center;
-    justify-content: space-evenly;
-    height: 30vh;
-}
-
-.div__inputs select{
-    width: 12em;
-    height: 3em;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding-left: 5px;
-    padding: 10px;
-    font-size: 18px;
-    font-family: 'Open Sans', sans-serif;
-    color: white;
-    background-color: blue;
-    border: 1px solid rgb(41, 18, 18);
-}
-
-.div__inputs select option{
-    font-size: 18px;
-    font-family: 'Open Sans', sans-serif;
-    color: #555;
-    background-color: rgb(247, 247, 247);
-    background-image: none;
-    font-size: 18px;
-    height: 50px;
-    padding: 15px;
-    border: 1px solid rgb(41, 18, 18);
-}
-
-.div__inputs input{
-    width: 40em;
-    height: 4em;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-}
-
-.div__inputs input:focus {
-    background-color:  rgb(169, 169, 199);
-    color: white;
-  }
-
-  .div__inputs button {
-    width: 10em;
-    height: 4em;
-    color: white;
-    background-color: rgb(104, 104, 184);
-    border-radius: 5px;
-    transition-duration: 1s;
-  }
-
-  .div__inputs button:hover{
-    background-color: rgb(159, 165, 194);
-    color: rgb(96, 96, 136);
-  }
-
-
-
-.div__items{
+.div__main{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    width: 80%;
+    width: 100%;
 }
 
-.div__items div{
+.div__main div{
     display: flex;
     justify-content: center;
     align-items: center;
