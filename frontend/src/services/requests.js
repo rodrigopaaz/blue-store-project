@@ -13,9 +13,10 @@ const post = async (category, search, host) => {
   }
 }
 
-const getCategories = async () => {
+const getCategories = async (host) => {
   try {
-    const { data } = await Axios.get('http://localhost:3000/category')
+    const setHost = !host ? 'http://localhost:3000/category' : `https://${host}/category`
+    const { data } = await Axios.get(setHost)
     return data
   } catch (error) {
     return []

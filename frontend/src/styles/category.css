@@ -1,0 +1,11 @@
+.div__main__category{
+    margin-top: 20px;
+    width: 2000px;
+}
+
+
+.div__categories img{
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+}

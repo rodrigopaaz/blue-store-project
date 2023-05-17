@@ -1,6 +1,6 @@
 .main__div__header{
     width: 100%;
-    background-color: #555;
+    background-color: #1f1f1f;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -13,7 +13,6 @@
     flex-wrap: wrap;
     padding-top: 120px;
     width: 2000px;
-    background-color: #1f1f1f;
     align-items: center;
     justify-content: space-evenly;
     height: 200px;
@@ -38,12 +37,16 @@
 }
 
 .div__header input{
-    width: 500px;
+    width: 800px;
     height: 6em;
     border: none;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
+}
+
+input::placeholder{
+  font-size: 20px;
 }
 
   .div__header button {
@@ -80,8 +83,8 @@
   .div__header .cart__button{
     background-color: #111111;
     border-radius: 100px;
-    width: 4em;
-    height: 60px;
+    width: 8em;
+    height: 80px;
     font-size: 30px;
   }
 
@@ -125,15 +128,13 @@
     table-layout: fixed;
     align-self:end;
     flex-wrap: wrap;
-    width:100%;
-    background-color: #161616;
+    width:50%;
     align-items: center;
     justify-content: space-evenly;
 }
 
 .div__header table th{
   font-size: 20px;
-  border-right: 2px solid white;
   color: white;
 }
 
