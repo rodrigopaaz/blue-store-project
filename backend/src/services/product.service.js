@@ -14,9 +14,8 @@ const findAll = () => {
   return data;
 };
 
-const createMany = async (name, category, search) => {
+const createMany = async (category, search) => {
   const buscape = await buscapeData(category, search);
-  Product.bulkCreate(buscape);
   return JSON.stringify(buscape);
 };
 

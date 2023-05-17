@@ -4,15 +4,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    border-top: 6px solid #f16223;
+    border-bottom: 30px solid #f16223;
 }
 
 .div__header{
     display: flex;
-    width: 1800px;
-    background-color: #2b2b2b;
+    flex-wrap: wrap;
+    padding-top: 120px;
+    width: 2000px;
+    background-color: #1f1f1f;
     align-items: center;
     justify-content: space-evenly;
-    height: 30vh;
+    height: 200px;
+    line-height: 30px;
 }
 
 .div__header div:first-child{
@@ -20,7 +25,7 @@
   flex-direction: column;
   align-items: center;
   margin-top: -120px;
-  height: 30vh;
+  height: 20vh;
 }
 
 .div__header div:first-child img{
@@ -34,27 +39,104 @@
 
 .div__header input{
     width: 500px;
-    height: 4em;
+    height: 6em;
+    border: none;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
 }
 
-.div__header input:focus {
-    background-color:  rgb(153, 114, 5);
-    color: white;
-  }
-
   .div__header button {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     width: 10em;
     height: 4em;
+    font-weight: 900;
+    border: none;
+    background-color: transparent;
     color: white;
-    background-color: rgb(194, 99, 22);
-    border-radius: 5px;
     transition-duration: 1s;
+    cursor: pointer;
   }
 
-  .div__header button:hover{
-    background-color: rgb(204, 101, 32);
-    color: rgb(255, 255, 255);
+  .div__header .login__button{
+    font-size: 15px;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    position: absolute;
+    top: 50px;
+    right: 50%;
   }
+
+
+  .div__header .login__button p:nth-child(2){
+    font-size: 35px;
+  }
+
+
+  .div__header .cart__button{
+    background-color: #111111;
+    border-radius: 100px;
+    width: 4em;
+    height: 60px;
+    font-size: 30px;
+  }
+
+  .div__header .fav__button{
+    width: 7em;
+    height: 60px;
+    font-size: 30px;
+}
+
+  .div__header .search__button{
+    background-color: #f16223;;
+    font-weight: 900;
+    font-size: 20px;
+    height: 80px;
+    border: none;
+    width: 6em;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    cursor: pointer;
+}
+
+  .lupa__icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 6em;
+    height: 5em;
+    border: none;
+    color: #f16223;
+    background-color: white;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    margin-left: 50px;
+  }
+
+  .div__header .icon{
+    width: 50px;
+  }
+
+  .div__header table{
+    table-layout: fixed;
+    align-self:end;
+    flex-wrap: wrap;
+    width:100%;
+    background-color: #161616;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.div__header table th{
+  font-size: 20px;
+  border-right: 2px solid white;
+  color: white;
+}
+
+.div__header table th:last-child{
+  border:none;
+}
