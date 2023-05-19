@@ -1,44 +1,38 @@
 .main__div__header{
     width: 100%;
-    background-color: #1f1f1f;
+    background-color:rgb(35, 32, 32);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-top: 6px solid #f16223;
-    border-bottom: 30px solid #f16223;
+    border-top: 6px solid rgb(255, 115, 21);
+    border-bottom: 20px solid rgb(255, 115, 21);
+    box-shadow: 2px 2px 20px black;
 }
 
 .div__header{
     display: flex;
     flex-wrap: wrap;
-    padding-top: 120px;
-    width: 2000px;
+    width: 1280px;
     align-items: center;
-    justify-content: space-evenly;
-    height: 200px;
-    line-height: 30px;
+    justify-content: center;
+    height: 90px;
+}
+.div__header div img{
+  width: 250px;
 }
 
-.div__header div:first-child{
+.image__container{
   display: flex;
-  flex-direction: column;
+  justify-content: end;
   align-items: center;
-  margin-top: -120px;
-  height: 20vh;
+  height: 200px;
 }
 
-.div__header div:first-child img{
-  width: 150px;
-}
-
-.div__header__title{
-    font-size: 80px;
-    color: white;
-}
 
 .div__header input{
-    width: 800px;
-    height: 6em;
+    width: 450px;
+    height: 60px;
     border: none;
     padding: 12px 20px;
     margin: 8px 0;
@@ -69,38 +63,39 @@ input::placeholder{
     align-items: center;
     justify-content: center;
     width: 250px;
-    position: absolute;
-    top: 50px;
-    right: 50%;
   }
 
-
   .div__header .login__button p:nth-child(2){
-    font-size: 35px;
+    font-size: 25px;
   }
 
 
   .div__header .cart__button{
-    background-color: #111111;
+    background-color: rgb(46, 46, 46);
     border-radius: 100px;
-    width: 8em;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     font-size: 30px;
   }
 
   .div__header .fav__button{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(46, 46, 46);
+    margin: 10px;
+    border-radius: 100px;
     width: 7em;
     height: 60px;
-    font-size: 30px;
+    font-size: 10px;
 }
 
   .div__header .search__button{
-    background-color: #f16223;;
+    background-color: rgb(255, 115, 21);
     font-weight: 900;
     font-size: 20px;
-    height: 80px;
+    height: 60px;
     border: none;
-    width: 6em;
+    width: 4em;
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
     cursor: pointer;
@@ -111,9 +106,9 @@ input::placeholder{
     align-items: center;
     justify-content: center;
     width: 6em;
-    height: 5em;
+    height: 60px;
     border: none;
-    color: #f16223;
+    color: rgb(255, 115, 21);
     background-color: white;
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
@@ -123,21 +118,3 @@ input::placeholder{
   .div__header .icon{
     width: 50px;
   }
-
-  .div__header table{
-    table-layout: fixed;
-    align-self:end;
-    flex-wrap: wrap;
-    width:50%;
-    align-items: center;
-    justify-content: space-evenly;
-}
-
-.div__header table th{
-  font-size: 20px;
-  color: white;
-}
-
-.div__header table th:last-child{
-  border:none;
-}

@@ -1,0 +1,18 @@
+.main__div{
+    width: 100%;
+}
+
+.prices__main__container{
+    display: flex;
+    width: 1280px;
+    margin-top: 20px;
+    flex-wrap: wrap;  
+}
+
+.prices__main__container .prices__card__container{
+    width: 15%;
+}
+
+.prices__main__container .prices__card__container img{
+    width: 200px;
+}

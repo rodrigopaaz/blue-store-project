@@ -1,11 +1,29 @@
 .div__main__category{
-    margin-top: 20px;
-    width: 2000px;
+    margin-top: 50px;
 }
 
+.container__categories div{
+    display: flex;
+    flex-direction: column;
+}
 
-.div__categories img{
-    width: 200px;
-    height: 200px;
-    border-radius: 20px;
+.container__categories{
+border: none;
+background-color: transparent;
+cursor: pointer;
+}
+
+.container__categories div p{
+    text-transform: capitalize;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: 700;
+    width: 150px;
+    height: 50px;
+}
+
+.container__categories img{
+    width: 150px;
+    height: 150px;
+    border-radius: 30px;
 }

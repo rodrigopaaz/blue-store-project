@@ -8,6 +8,7 @@
         width: 100vw;
         padding: 30px 10px;
         font-weight: 700;
+        z-index: 1;
     }
 
     .div__item__card a {
@@ -56,17 +57,28 @@
 }
 
 
-@media only screen and (min-width: 451px) and (max-width: 2600px){
+@media only screen and (min-width: 451px){
     .div__item__card{
         display: flex;
+        flex-direction: column;
         background-color:  #ffff;
         align-items: center;
-        justify-content: center;
-        width: 100vw;
-        padding: 30px 10px;
+        border: 1px solid rgb(156, 156, 156);
+        justify-content: space-evenly;
+        width: 240px;
+        margin: 10px;
+        border-radius: 10px;
+        height: 400px;
+        padding: 10px 40px 20px 40px;
         font-weight: 700;
+        margin-top: 20px;
+        transition: 0.3s;
     }
     
+    .div__item__card:hover{
+        box-shadow: 2px 2px 20px black;
+    }
+
     .div__item__card p:nth-child(2){
        font-size: 2em;
        font-weight: 900;
@@ -78,15 +90,13 @@
        font-weight: 900;
        text-shadow: 1px 1px rgb(63, 63, 63);
     }
-    
-    .div__items div img{
-        max-width: 80%;
-    }
-    .div__item__card div{
+
+    .div__item__card img{
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        width: 60%;
+        width: 300px;
+        height: 250px;
     }
     
     .div__item__card div:nth-child(2){
@@ -99,9 +109,30 @@
         align-items: center;
         justify-content: center;
         text-decoration: none;
+        margin-top: 10px;
+        align-self: center;
         width: 15em;
         height: 3em;
-        color: white;
-        background-color: blue;
+        color: rgb(46, 46, 46);
     }
+
+.card__menu__div {
+    z-index: 2;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: absolute;
+    z-index: 0;
+    margin-bottom: 360px;
+    width: 250px;
+    overflow: hidden;
+    transition: 0.1s;
+}
+
+.card__menu__div button{
+    cursor: pointer;
+    border: none;
+    background: rgba(247, 247, 247, 0.6);
+    border-radius: 50px;
+}
 }

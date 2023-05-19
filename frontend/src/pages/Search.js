@@ -5,12 +5,14 @@ import Loading from '../components/Loading'
 import Header from '../components/Header'
 import AppContext from '../context/Context'
 import React, { useContext } from 'react'
+import Categories from '../components/Categories'
 
 function Main () {
   const { products, isLoading } = useContext(AppContext)
   return (
       <div className="div__search">
       <Header />
+      <Categories />
       <div className='div__search__products'>
       {!isLoading
         ? (

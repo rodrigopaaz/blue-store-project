@@ -17,9 +17,3 @@
     justify-content: center;
     width: 100%;
 }
-
-.div__main div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
