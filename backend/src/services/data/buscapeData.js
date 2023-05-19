@@ -7,24 +7,21 @@ const buscapeProducts = async (category, search) => {
   const { data } = await axios.get(`${siteUrl}/${buscapeCategory}`);
   const $ = cheerio.load(data);
   const allProducts = [];
-  $('.col-lg-9 div').each(async (e, i) => {
+  $('.col-lg-9 .Hits_Wrapper__3q_7P .Paper_Paper__HIHv0').each(async (e, i) => {
     const getLink = $(i).find('.SearchCard_ProductCard_Inner__7JhKb').attr('href') || '';
-
-    if (!getLink.includes('buscape')) {
-      const product = {
-        title: $(i).find('a h2').text(),
-        price: $(i)
-          .find('a .SearchCard_ProductCard_Description__fGXI3 .Text_Text__h_AF6.Text_MobileHeadingS__Zxam2')
-          .text(),
-        linkUrl: siteUrl + getLink,
-      };
-      allProducts.push(product);
-    }
+    const product = {
+      title: $(i).find('a h2').text(),
+      price: $(i)
+        .find('a .SearchCard_ProductCard_Description__fGXI3 .Text_Text__h_AF6.Text_MobileHeadingS__Zxam2')
+        .text(),
+      linkUrl: !getLink.includes('buscape') ? siteUrl + getLink : getLink,
+    };
+    allProducts.push(product);
   });
+
   const filteredProducts = allProducts.filter(
     (product) => product.price && typeof product.title === 'string' && product.title.length < 100,
   );
-
   const getProductData = async (product) => {
     const fileData = await axios.get(product.linkUrl);
     const $$ = cheerio.load(fileData.data);
