@@ -1,25 +1,26 @@
 .main__div__header{
     width: 100%;
-    background-color:rgb(35, 32, 32);
+    background-color:#006494;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-top: 6px solid rgb(255, 115, 21);
-    border-bottom: 20px solid rgb(255, 115, 21);
     box-shadow: 2px 2px 20px black;
 }
 
 .div__header{
     display: flex;
-    flex-wrap: wrap;
     width: 1280px;
     align-items: center;
-    justify-content: center;
-    height: 90px;
+    justify-content: space-between;
+    height: 80px;
 }
-.div__header div img{
-  width: 250px;
+
+.div__header__inputs {
+  display: flex;
+  align-items: center;
+  width: 850px;
+  height: 80px;
 }
 
 .image__container{
@@ -30,13 +31,20 @@
 }
 
 
-.div__header input{
+.div__header__inputs input{
     width: 450px;
     height: 60px;
     border: none;
     padding: 12px 20px;
     margin: 8px 0;
+    font-size: 20px;
+    color: rgb(56, 56, 56);
     box-sizing: border-box;
+}
+
+.div__header__inputs input:focus{
+  box-shadow: 0 0 0 0;
+  outline: 0;
 }
 
 input::placeholder{
@@ -48,7 +56,7 @@ input::placeholder{
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    width: 10em;
+    width: 21em;
     height: 4em;
     font-weight: 900;
     border: none;
@@ -58,11 +66,18 @@ input::placeholder{
     cursor: pointer;
   }
 
-  .div__header .login__button{
+  .div__header__inputs .login__button{
+    display: flex;
     font-size: 15px;
     align-items: center;
     justify-content: center;
     width: 250px;
+  }
+
+  .div__header div .login__button{
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 15px;
   }
 
   .div__header .login__button p:nth-child(2){
@@ -70,18 +85,18 @@ input::placeholder{
   }
 
 
-  .div__header .cart__button{
-    background-color: rgb(46, 46, 46);
+  .div__header__inputs .cart__button{
+    background-color: #0b3750;
     border-radius: 100px;
     width: 60px;
     height: 60px;
     font-size: 30px;
   }
 
-  .div__header .fav__button{
+  .div__header__inputs .fav__button{
     display: flex;
     flex-direction: column;
-    background-color: rgb(46, 46, 46);
+    background-color:#0b3750;
     margin: 10px;
     border-radius: 100px;
     width: 7em;
@@ -89,8 +104,8 @@ input::placeholder{
     font-size: 10px;
 }
 
-  .div__header .search__button{
-    background-color: rgb(255, 115, 21);
+  .div__header__inputs .search__button{
+    background-color: #105177;
     font-weight: 900;
     font-size: 20px;
     height: 60px;
@@ -108,13 +123,13 @@ input::placeholder{
     width: 6em;
     height: 60px;
     border: none;
-    color: rgb(255, 115, 21);
+    color: #006494;
     background-color: white;
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
     margin-left: 50px;
   }
 
-  .div__header .icon{
+  .div__header__inputs .icon{
     width: 50px;
   }

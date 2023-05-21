@@ -1,5 +1,5 @@
 .div__main__category{
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 .container__categories div{
@@ -23,7 +23,7 @@ cursor: pointer;
 }
 
 .container__categories img{
-    width: 150px;
-    height: 150px;
+    width: 170px;
+    height: 140px;
     border-radius: 30px;
 }

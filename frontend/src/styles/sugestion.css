@@ -1,0 +1,16 @@
+.div__main__sugestion{
+    display: flex;
+    background-image: url();
+    margin-bottom: 60px;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    width: 100%;
+    /* box-shadow: 10px 10px 40px black; */
+}
+
+.div__main__sugestion div h4{
+display: flex;
+font-size: 20px;
+margin: 15px 0 0 15px;
+}

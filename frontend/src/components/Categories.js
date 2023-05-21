@@ -35,14 +35,14 @@ export default function Categories () {
       wheel: true,
       rewind: true,
       trimSpace: true,
-      wheelMinThreshold: 3,
-      wheelSleep: 2,
+      wheelMinThreshold: 4,
+      wheelSleep: '1100',
       gap: '1px',
       perPage: 7,
       width: '1280px',
-      height: '220px',
+      height: '205px',
       speed: 1000,
-      perMove: 7,
+      perMove: 2,
       autoplay: true,
       interval: 3000
     } }>

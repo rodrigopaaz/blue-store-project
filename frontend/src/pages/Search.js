@@ -6,6 +6,7 @@ import Header from '../components/Header'
 import AppContext from '../context/Context'
 import React, { useContext } from 'react'
 import Categories from '../components/Categories'
+import Footer from '../components/Footer'
 
 function Main () {
   const { products, isLoading } = useContext(AppContext)
@@ -22,6 +23,7 @@ function Main () {
         <Loading />
           )}
           </div>
+          <Footer />
     </div>
   )
 }

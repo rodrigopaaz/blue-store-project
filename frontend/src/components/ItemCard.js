@@ -4,7 +4,7 @@ import '../styles/card.css'
 import { FaExternalLinkAlt } from 'react-icons/fa'
 import { useHistory } from 'react-router-dom'
 import imgNotFound from '../images/indsp.gif'
-import { AiOutlineHeart } from 'react-icons/ai'
+import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
 import { BsCartPlus } from 'react-icons/bs'
 
 export default function ItemCard (item) {
@@ -14,13 +14,22 @@ export default function ItemCard (item) {
   const history = useHistory()
 
   const compareLink = (link) => {
-    if (!link.length) return 'ir a página'
+    if (!link.length) return 'ir a página '
     const message = `Compare entre ${link.length} vendedores`
     return <>{message} <FaExternalLinkAlt /></>
   }
   const [toggleCardMenu, setToggleCardMenu] = useState(false)
+  const [toggleFavorite, setToggleFavorite] = useState(false)
   const toogleCard = !toggleCardMenu ? '0' : '20px'
   const toogleButton = !toggleCardMenu ? '0' : '40px'
+  const favorite = toggleFavorite
+    ? <AiFillHeart size={toogleCard} color='#006494' />
+    : <AiOutlineHeart size={toogleCard} color='#006494' />
+
+  const handleFavorite = () => {
+    setToggleFavorite(!toggleFavorite)
+    console.log(toggleFavorite)
+  }
 
   return (
     <div className="div__item__card"
@@ -30,13 +39,14 @@ export default function ItemCard (item) {
       <div className='card__menu__div'>
         <button
         type='button'
+        onClick={() => handleFavorite()}
         style={{
           transition: '0.01s',
           width: toogleButton,
           height: toogleButton
         }}
         >
-        <AiOutlineHeart size={toogleCard} color='red' />
+        {favorite}
         </button>
         <button
         type='button'
@@ -48,7 +58,7 @@ export default function ItemCard (item) {
         >
           <BsCartPlus
           size={toogleCard}
-          color='black'/>
+          color='rgb(0,100,148)'/>
           </button>
       </div>
       <div className="imagem">

@@ -1,8 +1,8 @@
 /* eslint-disable no-undef */
 import React, { useContext } from 'react'
 import AppContext from '../context/Context'
-import { useHistory } from 'react-router-dom'
 import post from '../services/requests'
+import { useHistory } from 'react-router-dom'
 /* import icon from '../images/logo.png' */
 import '../styles/header.css'
 import { VscSearch } from 'react-icons/vsc'
@@ -22,7 +22,6 @@ export default function Header () {
     setIsLoading(true)
     const host = process.env.REACT_APP_HOST
     const data = await post(null, search, host)
-    console.log(data)
     setProducts(data)
     setIsLoading(false)
     history.push('/search')
@@ -38,16 +37,21 @@ export default function Header () {
       type='button'
       className='login__button'
       >
+        <AiOutlineUser size={43} style={{ height: '45px' }}/>
+        <div>
         <p>Entre ou Cadastre-se</p>
-        <p><AiOutlineUser size={30}/> Minha Conta</p>
+        <p>Minha Conta</p>
+        </div>
       </button>
       </div>
+      <div className='div__header__inputs'>
       <p className='lupa__icon'><VscSearch size={30}/></p>
       <label type="text">
         <input
           placeholder="Digite o que procura"
           type="text"
           onChange={({ target: { value } }) => setSearch(value)}
+          onKeyDown={({ key }) => { if (key === 'Enter') getProducts() }}
         />
       </label>
       <button
@@ -62,7 +66,7 @@ export default function Header () {
       <button
       type='button'
       className='fav__button'
-      ><ImHeart size={20} color='red'/> <p>Favoritos</p>
+      ><ImHeart size={20} color='white'/> <p>Favoritos</p>
 
       </button>
 
@@ -72,6 +76,7 @@ export default function Header () {
       >
        <BsCartPlus size={30}/>
       </button>
+      </div>
     </div>
     </div>
   )

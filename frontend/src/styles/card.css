@@ -65,8 +65,8 @@
         align-items: center;
         border: 1px solid rgb(156, 156, 156);
         justify-content: space-evenly;
-        width: 240px;
-        margin: 10px;
+        width: 220px;
+        margin: 5px;
         border-radius: 10px;
         height: 400px;
         padding: 10px 40px 20px 40px;
@@ -95,8 +95,9 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        width: 300px;
-        height: 250px;
+        width: 290px;
+        height: 230px;
+        max-height: 230px;
     }
     
     .div__item__card div:nth-child(2){
@@ -107,11 +108,11 @@
     .link{
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-evenly;
         text-decoration: none;
         margin-top: 10px;
         align-self: center;
-        width: 15em;
+        width: 17em;
         height: 3em;
         color: rgb(46, 46, 46);
     }
