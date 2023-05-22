@@ -7,6 +7,8 @@ import Search from './pages/Search'
 import Prices from './pages/Prices'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import Cart from './pages/Cart'
+import Favorite from './pages/Favorite'
 
 function App () {
   return (
@@ -18,6 +20,8 @@ function App () {
         <Route exact path="/products/compare" component={ Prices } />
         <Route exact path="/login" component={ Login } />
         <Route exact path="/register" component={ Register } />
+        <Route exact path="/cart" component={ Cart } />
+        <Route exact path="/favorites" component={ Favorite } />
       </Switch>
     </div>
   )

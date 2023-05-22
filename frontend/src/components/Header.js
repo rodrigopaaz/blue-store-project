@@ -84,6 +84,7 @@ export default function Header () {
       <button
       type='button'
       className='fav__button'
+      onClick={() => history.push('/favorites')}
       ><ImHeart size={20} color='white'/> <p>Favoritos</p>
 
       </button>
@@ -91,6 +92,7 @@ export default function Header () {
       <button
       className='cart__button'
       type='button'
+      onClick={() => history.push('/cart')}
       >
        <BsCartPlus size={30}/>
       </button>

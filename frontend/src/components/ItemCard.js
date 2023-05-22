@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom'
 import imgNotFound from '../images/indsp.gif'
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
 import { BsCartPlus } from 'react-icons/bs'
-import { cartAdd, cartRem, favAdd, favRem } from '../utils/localStorage'
+import { cartAdd, cartRem, favAdd, favRem, getCart, getFav } from '../utils/localStorage'
 
 export default function ItemCard (item) {
   const { product } = item
@@ -29,13 +29,13 @@ export default function ItemCard (item) {
     : <AiOutlineHeart size={toogleCard} color='#006494' />
 
   useEffect(() => {
-    const item = JSON.parse(localStorage.getItem('favorite')) || []
+    const item = getFav()
     const checkItem = item.find((e) => e.title === product.title)
     if (checkItem)setToggleFavorite(true)
   }, [])
 
   useEffect(() => {
-    const item = JSON.parse(localStorage.getItem('cart')) || []
+    const item = getCart()
     const checkItem = item.find((e) => e.title === product.title)
     if (checkItem)setToggleCart(true)
   }, [])
