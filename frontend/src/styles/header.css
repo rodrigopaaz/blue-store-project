@@ -133,3 +133,27 @@ input::placeholder{
   .div__header__inputs .icon{
     width: 50px;
   }
+
+  .login__menu{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 3;
+    overflow: hidden;
+    background-color: #ffffff;
+    border-radius: 5px;
+    transition: 0.3s;
+  }
+
+  .login__menu button{
+    color: #0b3750;
+    width: 200px;
+  }
+
+  .login__menu button:first-child{
+    border-bottom: 1px solid #b6cad6;
+    width: 200px;
+  }

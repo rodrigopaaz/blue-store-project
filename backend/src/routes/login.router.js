@@ -1,6 +1,6 @@
 const express = require('express');
-const { loginController } = require('../controllers');
 const { validatePassword, validateEmail } = require('../middlewares/login.validate');
+const { loginController } = require('../controllers');
 
 const loginRouter = express.Router();
 

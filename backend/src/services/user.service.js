@@ -1,27 +1,26 @@
 const md5 = require('md5');
-const { User } = require('../models');
+const { Users } = require('../models');
 const { createToken } = require('../utils/JWT.token');
 
 const createUserService = async (info) => {
   try {
     const {
-      name, email, password, role,
+      name, email, password,
     } = info;
-    const userExist = await User.findOne({
+    const userExist = await Users.findOne({
       where: {
-        name, email, password: md5(password), role,
+        name, email, password: md5(password),
       },
     });
     if (userExist) throw new Error('User alredy exists');
-    const data = await User.create({
+    const data = await Users.create({
       name,
       email,
       password: md5(password),
-      role,
     });
     const token = createToken({ data });
     return {
-      token, name, email, role,
+      token, name, email,
     };
   } catch (error) {
     throw new Error(error);

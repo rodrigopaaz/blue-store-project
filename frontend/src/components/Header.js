@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import AppContext from '../context/Context'
 import post from '../services/requests'
 import { useHistory } from 'react-router-dom'
@@ -17,6 +17,12 @@ export default function Header () {
     search,
     setSearch
   } = useContext(AppContext)
+
+  const [menu, setMenu] = useState(false)
+
+  const toogleMenu = () => {
+    setMenu(!menu)
+  }
 
   const getProducts = async () => {
     setIsLoading(true)
@@ -36,11 +42,23 @@ export default function Header () {
       <button
       type='button'
       className='login__button'
+      onMouseEnter={toogleMenu}
+      onMouseLeave={toogleMenu}
       >
         <AiOutlineUser size={43} style={{ height: '45px' }}/>
         <div>
         <p>Entre ou Cadastre-se</p>
         <p>Minha Conta</p>
+        <div className='login__menu' style={!menu ? { height: '0' } : { height: '80px' } }>
+          <button
+          type='button'
+          onClick={() => history.push('/login')}
+          >Acesse sua conta</button>
+          <button
+             type='button'
+             onClick={() => history.push('/register')}
+          >Cadastre-se</button>
+        </div>
         </div>
       </button>
       </div>

@@ -13,6 +13,33 @@ const post = async (category, search, host) => {
   }
 }
 
+const register = async (name, email, password, host) => {
+  const setHost = !host ? 'http://localhost:3000' : `https://${host}`
+  try {
+    const { data } = await Axios.post(`${setHost}/user`, {
+      name,
+      email,
+      password
+    })
+    return data
+  } catch (error) {
+    return []
+  }
+}
+
+const login = async (email, password, host) => {
+  const setHost = !host ? 'http://localhost:3000' : `https://${host}`
+  try {
+    const { data } = await Axios.post(`${setHost}/login`, {
+      email,
+      password
+    })
+    return data
+  } catch (error) {
+    return []
+  }
+}
+
 const getCategories = async (host) => {
   try {
     const setHost = !host ? 'http://localhost:3000/category' : `https://${host}/category`
@@ -24,4 +51,4 @@ const getCategories = async (host) => {
 }
 
 export default post
-export { getCategories }
+export { getCategories, register, login }

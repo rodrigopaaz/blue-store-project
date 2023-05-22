@@ -1,6 +1,4 @@
-const {
-  createUserService,
-} = require('../services');
+const { createUserService } = require('../services/user.service');
 
 const createUserController = async (req, res) => {
   try {
@@ -9,7 +7,6 @@ const createUserController = async (req, res) => {
       name,
       email,
       password,
-      role: 'customer',
     });
     res.status(201).json(result);
   } catch (error) {

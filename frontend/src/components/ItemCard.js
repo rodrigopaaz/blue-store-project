@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useEffect, useContext, useState } from 'react'
 import AppContext from '../context/Context'
 import '../styles/card.css'
 import { FaExternalLinkAlt } from 'react-icons/fa'
@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom'
 import imgNotFound from '../images/indsp.gif'
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
 import { BsCartPlus } from 'react-icons/bs'
+import { cartAdd, cartRem, favAdd, favRem } from '../utils/localStorage'
 
 export default function ItemCard (item) {
   const { product } = item
@@ -20,15 +21,33 @@ export default function ItemCard (item) {
   }
   const [toggleCardMenu, setToggleCardMenu] = useState(false)
   const [toggleFavorite, setToggleFavorite] = useState(false)
+  const [toggleCart, setToggleCart] = useState(false)
   const toogleCard = !toggleCardMenu ? '0' : '20px'
   const toogleButton = !toggleCardMenu ? '0' : '40px'
   const favorite = toggleFavorite
     ? <AiFillHeart size={toogleCard} color='#006494' />
     : <AiOutlineHeart size={toogleCard} color='#006494' />
 
+  useEffect(() => {
+    const item = JSON.parse(localStorage.getItem('favorite')) || []
+    const checkItem = item.find((e) => e.title === product.title)
+    if (checkItem)setToggleFavorite(true)
+  }, [])
+
+  useEffect(() => {
+    const item = JSON.parse(localStorage.getItem('cart')) || []
+    const checkItem = item.find((e) => e.title === product.title)
+    if (checkItem)setToggleCart(true)
+  }, [])
+
   const handleFavorite = () => {
+    !toggleFavorite ? favAdd(product) : favRem(product)
     setToggleFavorite(!toggleFavorite)
-    console.log(toggleFavorite)
+  }
+
+  const handleCart = () => {
+    !toggleCart ? cartAdd(product) : cartRem(product)
+    setToggleCart(!toggleCart)
   }
 
   return (
@@ -58,6 +77,7 @@ export default function ItemCard (item) {
         >
           <BsCartPlus
           size={toogleCard}
+          onClick={() => handleCart()}
           color='rgb(0,100,148)'/>
           </button>
       </div>

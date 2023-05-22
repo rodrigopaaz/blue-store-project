@@ -1,6 +1,6 @@
 /* eslint-disable react/react-in-jsx-scope */
 import '../styles/main.css'
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import Header from '../components/Header'
 import Loading from '../components/Loading'
 import AppContext from '../context/Context'
@@ -9,9 +9,16 @@ import Sugestions from '../components/Sugestions'
 import Footer from '../components/Footer'
 import imageBackground from '../images/sazionalBackground.jpg'
 import forHome from '../images/forHome.jpg'
+import { login } from '../services/requests'
 
 function Main () {
   const { isLoading } = useContext(AppContext)
+  const test = async () => { const create = await login('rodrigo@paz.com', 'abc123'); console.log(create, 'adfsdofihioh') }
+
+  useEffect(() => {
+    test()
+  }, [])
+
   return (
     <div className="div__main">
      <Header />
