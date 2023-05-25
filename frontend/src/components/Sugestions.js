@@ -37,8 +37,8 @@ export default function Sugestions ({ title, path, background, titleColor }) {
                   /*                  autoplay: true,
                   interval: 7000 */
                 } }>
-              {sugestion.map((item, _index) => (
-               <SplideSlide key={item.id + item.name} aria-details={item.name}>
+              {sugestion.map((item, index) => (
+               <SplideSlide key={index + item.title} aria-details={item.name}>
              <ItemCard product={item} key={item.id + item.name}/>
               </SplideSlide>
               ))

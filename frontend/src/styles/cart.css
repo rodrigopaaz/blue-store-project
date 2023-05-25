@@ -1,0 +1,42 @@
+.div__cart {
+    position: relative;
+    width: 1280px;
+    min-height: 800px;
+    border: 1px solid rgb(11, 55, 80);
+    background-color: rgb(52, 96, 139);
+  }
+  
+  .div__cart table thead {
+    font-weight: 900;
+  }
+  
+  .div__cart table {
+    border-collapse: collapse;
+    width: 100%;
+    color: aliceblue;
+  }
+  
+  .div__cart table td {
+    border-bottom: 1px solid rgb(11, 55, 80);
+    height: 40px;
+    min-width: 40px;
+    border-right-width: 2px;
+  }
+  
+  .div__cart table tr {
+    table-layout: fixed;
+    text-align: center;
+  }
+  
+  .div__cart table tfoot {
+    position: absolute; 
+    right: 0;
+    bottom: 0; 
+    table-layout: fixed;
+    width: 10%;
+  }
+  
+  .div__cart table tfoot tr {
+    width: 100%;
+  }
+  

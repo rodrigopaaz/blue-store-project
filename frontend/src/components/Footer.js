@@ -22,8 +22,8 @@ export default function Footer () {
     <div className='main__footer__container'>
         <h4>Marcas populares</h4>
         <div className='brands__container'>
-        {brands.map((b) => <button
-        key={b}
+        {brands.map((b, i) => <button
+        key={b + i}
         type='button'
         onClick={() => getProducts(b)}
         >{b}

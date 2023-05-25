@@ -51,7 +51,7 @@ input::placeholder{
   font-size: 20px;
 }
 
-  .div__header button {
+  .div__header button, .login__container {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -66,7 +66,7 @@ input::placeholder{
     cursor: pointer;
   }
 
-  .div__header__inputs .login__button{
+  .div__header__inputs .login__container{
     display: flex;
     font-size: 15px;
     align-items: center;
@@ -74,13 +74,13 @@ input::placeholder{
     width: 250px;
   }
 
-  .div__header div .login__button{
+  .div__header div .login__container{
     align-items: flex-start;
     justify-content: flex-start;
     margin: 15px;
   }
 
-  .div__header .login__button p:nth-child(2){
+  .div__header .login__container p:nth-child(2){
     font-size: 25px;
   }
 
@@ -156,4 +156,12 @@ input::placeholder{
   .login__menu button:first-child{
     border-bottom: 1px solid #b6cad6;
     width: 200px;
+  }
+
+   .div__header .logo__button{
+    width: 65px;
+    height: 50px;
+    background-image: url('../images/logo.png');
+    background-size: contain;
+    border-radius: 50px;
   }

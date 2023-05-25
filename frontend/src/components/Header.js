@@ -15,7 +15,8 @@ export default function Header () {
     setProducts,
     setIsLoading,
     search,
-    setSearch
+    setSearch,
+    user
   } = useContext(AppContext)
 
   const [menu, setMenu] = useState(false)
@@ -39,9 +40,8 @@ export default function Header () {
     <div className='main__div__header'>
     <div className="div__header">
       <div>
-      <button
-      type='button'
-      className='login__button'
+      {!user.token && <div
+      className='login__container'
       onMouseEnter={toogleMenu}
       onMouseLeave={toogleMenu}
       >
@@ -60,9 +60,18 @@ export default function Header () {
           >Cadastre-se</button>
         </div>
         </div>
-      </button>
+      </div>}
+        {user.token &&
+          <div className='login__menu'>
+            <p>{user.name}</p>
+          </div>
+        }
       </div>
       <div className='div__header__inputs'>
+      <button
+      className='logo__button'
+      onClick={() => history.push('/')}
+      />
       <p className='lupa__icon'><VscSearch size={30}/></p>
       <label type="text">
         <input

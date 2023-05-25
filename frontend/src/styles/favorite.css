@@ -1,0 +1,5 @@
+.div__favorite{
+width: 1280px;
+display: flex;
+flex-wrap: wrap;
+}

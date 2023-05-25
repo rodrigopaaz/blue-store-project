@@ -1,0 +1,38 @@
+.main__form__container{
+    display: flex;
+    align-self: center;
+    margin-top: 150px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 800px;
+    box-shadow: 2px 20px 25px black;
+    background-color: rgb(252, 252, 252);
+    height: 400px;
+}
+
+.main__form__container input{
+    width: 450px;
+    height: 10px;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.main__form__container label{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 10px;
+    width: 490px;
+    height: 60px;
+    border-radius: 5px;
+    justify-content: center;
+}
+
+.main__form__container button{
+    width: 200px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: rgb(16,81,119) ;
+    color: aliceblue;
+}

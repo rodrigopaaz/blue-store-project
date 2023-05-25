@@ -8,6 +8,7 @@ export default function AppProvider ({ children }) {
   const [search, setSearch] = useState('')
   const [site, setSite] = useState(null)
   const [betterPrice, setBetterPrice] = useState([])
+  const [user, setUser] = useState({})
   const data = useMemo(
     () => ({
       products,
@@ -21,7 +22,9 @@ export default function AppProvider ({ children }) {
       site,
       setSite,
       setBetterPrice,
-      betterPrice
+      betterPrice,
+      user,
+      setUser
     }),
     [
       products,
@@ -35,7 +38,9 @@ export default function AppProvider ({ children }) {
       site,
       setSite,
       betterPrice,
-      setBetterPrice
+      setBetterPrice,
+      user,
+      setUser
     ]
   )
 
