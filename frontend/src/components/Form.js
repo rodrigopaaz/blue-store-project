@@ -11,9 +11,10 @@ export default function Form () {
   const { location: { pathname } } = useHistory()
   const { setUser } = useContext(AppContext)
   const history = useHistory()
+  const host = process.env.REACT_APP_HOST
 
   const handleInput = async () => {
-    const handleUser = pathname !== '/login' ? await register(name, email, password) : await login(email, password)
+    const handleUser = pathname !== '/login' ? await register(name, email, password, host) : await login(email, password, host)
     localStorage.setItem('user', JSON.stringify(handleUser))
     setUser(handleUser)
     history.push('/')

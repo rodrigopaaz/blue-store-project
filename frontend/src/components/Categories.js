@@ -7,12 +7,13 @@ import AppContext from '../context/Context'
 import { useHistory } from 'react-router-dom'
 
 export default function Categories () {
+  const host = process.env.REACT_APP_HOST
   const { setProducts, setIsLoading } = useContext(AppContext)
   const [category, setCategory] = useState([])
   const history = useHistory()
   const getCategory = async () => {
     setIsLoading(true)
-    const catego = await getCategories()
+    const catego = await getCategories(host)
     setCategory(catego)
     setIsLoading(false)
   }
