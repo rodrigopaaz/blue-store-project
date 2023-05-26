@@ -1,3 +1,11 @@
+.div__main__cart{
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .div__cart {
     position: relative;
     width: 1280px;
