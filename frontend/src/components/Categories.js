@@ -13,6 +13,7 @@ export default function Categories () {
   const history = useHistory()
   const getCategory = async () => {
     setIsLoading(true)
+    console.log(host)
     const catego = await getCategories(host)
     setCategory(catego)
     setIsLoading(false)
