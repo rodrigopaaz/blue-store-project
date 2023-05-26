@@ -14,10 +14,17 @@ const findAll = () => {
   return data;
 };
 
-const createMany = async (category, search) => {
+const retryBuscapeData = async (category, search) => {
   const buscape = await buscapeData(category, search);
-  return JSON.stringify(buscape);
+
+  switch (buscape.length) {
+    case 0:
+      return retryBuscapeData(category, search);
+    default:
+      return JSON.stringify(buscape);
+  }
 };
+const createMany = async (category, search) => retryBuscapeData(category, search);
 
 module.exports = {
   createMany,

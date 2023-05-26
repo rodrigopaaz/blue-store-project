@@ -1,3 +1,11 @@
+.div__main__favorite{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
 .div__favorite{
 width: 1280px;
 display: flex;
