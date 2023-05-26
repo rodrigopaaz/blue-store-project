@@ -14,7 +14,7 @@ const post = async (category, search, host) => {
 }
 
 const register = async (name, email, password, host) => {
-  const setHost = !host ? 'http://localhost:3000' : `https://${host}`
+  const setHost = !host ? 'http://localhost:3000' : host
   try {
     const { data } = await Axios.post(`${setHost}/user`, {
       name,
@@ -28,7 +28,7 @@ const register = async (name, email, password, host) => {
 }
 
 const login = async (email, password, host) => {
-  const setHost = !host ? 'http://localhost:3000' : `https://${host}`
+  const setHost = !host ? 'http://localhost:3000' : host
   try {
     const { data } = await Axios.post(`${setHost}/login`, {
       email,
@@ -42,7 +42,7 @@ const login = async (email, password, host) => {
 
 const getCategories = async (host) => {
   try {
-    const setHost = !host ? 'http://localhost:3000/category' : `https://${host}/category`
+    const setHost = !host ? 'http://localhost:3000/category' : `${host}/category`
     const { data } = await Axios.get(setHost)
     return data
   } catch (error) {
