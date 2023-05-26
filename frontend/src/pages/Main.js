@@ -17,12 +17,13 @@ function Main () {
     <div className="div__main">
      <Header />
      <Categories />
-     <Sugestions title={'Melhores da Semana'} path={'/'}/>
-     <Sugestions title={'Coleção de Inverno'} path={'casacos'} background={imageBackground} titleColor={'rgb(11,55,80)'}/>
-     <Sugestions title={'Tudo para sua casa'} path={'utensilios de casa'} background={forHome} titleColor={'rgb(11,55,80)'}/>
      {!isLoading
        ? (
-           <div />
+        <div className='main__sugestions'>
+        <Sugestions title={'Melhores da Semana'} path={'/'}/>
+        <Sugestions title={'Coleção de Inverno'} path={'casacos'} background={imageBackground} titleColor={'rgb(11,55,80)'}/>
+        <Sugestions title={'Tudo para sua casa'} path={'utensilios de casa'} background={forHome} titleColor={'rgb(11,55,80)'}/>
+        </div>
          )
        : (
         <Loading />

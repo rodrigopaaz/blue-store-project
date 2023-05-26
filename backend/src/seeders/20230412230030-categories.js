@@ -18,31 +18,31 @@ module.exports = {
         }, {
           id: 4,
           name: 'beleza',
-          image: 'https://img.freepik.com/fotos-gratis/colecao-close-up-de-produtos-de-maquiagem-e-beleza_23-2148620012.jpg?w=2000',
+          image: 'https://a-static.mlcdn.com.br/800x560/maleta-kit-de-maquiagens-e-itens-de-beleza-c-12-itens-lika-online/likaonline/1657-4733/6612b3dc952a2ea1eb58984eefbd0762.jpeg',
         }, {
           id: 5,
           name: 'smartphones',
-          image: 'https://i.zst.com.br/thumbs/12/29/19/-846658799.jpg',
+          image: 'https://images.kabum.com.br/produtos/fotos/429425/smartphone-samsung-galaxy-a14-4g-128gb-4gb-ram-octa-core-camera-tripla-de-50mp-tela-de-6-6-preto-sm-a145mzkrzto_1677711429_original.jpg',
         }, {
           id: 6,
           name: 'iphone',
-          image: 'https://www.menosfios.com/wp-content/uploads/2023/03/akrales_210917_4760_0175.jpg',
+          image: 'https://www.iplace.com.br/ccstore/v1/images/?source=/file/v8169653103958540939/products/222255.00-apple-iphone-14-pro-128gb-pretoespacial-mpxv3be.jpg',
         }, {
           id: 7,
-          name: 'esporte',
-          image: 'https://www.janguiediniz.com.br/img/1/1217/blog/n/b30fa974000098fb12ae142511911053.jpg',
+          name: 'petshop',
+          image: 'https://static.wixstatic.com/media/cef25d_9f1412acd93145939bb537e85c4cb393~mv2.png/v1/fill/w_640,h_558,fp_0.48_0.29,lg_1,q_85,enc_auto/cef25d_9f1412acd93145939bb537e85c4cb393~mv2.png',
         }, {
           id: 8,
-          name: 'ferramentas',
-          image: 'https://obrasconstrucaocivil.com/wp-content/uploads/2021/11/fonte-sweestest-home.jpg',
+          name: 'jardinagem',
+          image: 'https://assets.tramontina.com.br/upload/tramon/imagens/MUL/78100801PDM001G.jpg',
         }, {
           id: 9,
           name: 'moveis',
-          image: 'https://images.tcdn.com.br/img/img_prod/836870/rack_c_painel_p_tv_ate_70_e_com_led_michigan_lukaliam_moveis_1203_1_644369203dcac4ba259d2eea05b27ebe.jpg',
+          image: 'https://images.tcdn.com.br/img/img_prod/984241/guarda_roupa_turim_3_portas_de_correr_com_1_espelho_bianchi_moveis_58_1_fc47d9e020bc00b690b42c59a18e1390.jpg',
         }, {
           id: 10,
           name: 'console de video game',
-          image: 'https://planejadorweb.com.br/wp-content/uploads/2021/10/Melhores-Consoles-de-Videogame.jpeg',
+          image: 'https://tekshanghai.com/wp-content/uploads/2020/09/SONY-PlayStation-5-Console_6.jpg',
         }, {
           id: 11,
           name: 'jogos ps4',
@@ -58,7 +58,7 @@ module.exports = {
         }, {
           id: 14,
           name: 'academia',
-          image: 'https://www.pontotel.com.br/wp-content/uploads/2021/12/auxilio-academia.jpg',
+          image: 'https://images.tcdn.com.br/img/img_prod/450774/kettlebell_32kg_ultrawod_697_3_4ed8e4b70c6b481f65790194580524b9.jpg',
         }, {
           id: 15,
           name: 'geladeira',

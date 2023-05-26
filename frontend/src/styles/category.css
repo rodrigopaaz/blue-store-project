@@ -5,6 +5,7 @@
 .container__categories div{
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .container__categories{
@@ -18,12 +19,12 @@ cursor: pointer;
     text-align: center;
     margin-top: 10px;
     font-weight: 700;
-    width: 150px;
-    height: 50px;
+    width: 120px;
+    height: 60px;
 }
 
 .container__categories img{
-    width: 170px;
-    height: 140px;
+    max-width: 120px;
+    height: 120px;
     border-radius: 30px;
 }

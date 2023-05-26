@@ -30,7 +30,7 @@ export default function Sugestions ({ title, path, background, titleColor }) {
                   trimSpace: true,
                   perPage: 4,
                   padding: '5px',
-                  width: '1280px',
+                  width: '1250px',
                   height: '500px',
                   speed: 1000,
                   perMove: 4

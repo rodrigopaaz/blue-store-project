@@ -13,15 +13,14 @@ export default function Categories () {
   const history = useHistory()
   const getCategory = async () => {
     setIsLoading(true)
-    console.log(host)
     const catego = await getCategories(host)
     setCategory(catego)
     setIsLoading(false)
   }
 
   const setItems = async (item) => {
-    setIsLoading(true)
     const host = process.env.REACT_APP_HOST
+    setIsLoading(true)
     const product = await post(null, item, host)
     setProducts(product)
     setIsLoading(false)
@@ -40,9 +39,9 @@ export default function Categories () {
       wheelMinThreshold: 4,
       wheelSleep: '1100',
       gap: '1px',
-      perPage: 7,
-      width: '1280px',
-      height: '205px',
+      perPage: 9,
+      width: '1260px',
+      height: '185px',
       speed: 1000,
       perMove: 2,
       autoplay: true,
@@ -52,7 +51,7 @@ export default function Categories () {
  <SplideSlide key={e.id + e.name} aria-details={e.name}>
 <button
 type='button'
-onClick={() => setItems(e.name)}
+onClick={async () => await setItems(e.name)}
 className='container__categories'>
   <div>
    <img src={e.image} alt="product"/>
