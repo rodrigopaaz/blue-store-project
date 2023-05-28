@@ -1,27 +1,17 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    const Products = queryInterface.createTable('products', {
+    const Comparison = queryInterface.createTable('comparison', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      title: {
+      info: {
         allowNull: false,
         type: Sequelize.STRING,
       },
-      category_id: {
-        allowNull: true,
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'categories',
-          key: 'id',
-        },
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE',
-      },
-      search_id: {
+      company: {
         allowNull: true,
         type: Sequelize.INTEGER,
         references: {
@@ -31,23 +21,19 @@ module.exports = {
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
       },
-      price: {
+      company_img: {
         allowNull: false,
         type: Sequelize.STRING,
       },
-      image_url: {
+      link: {
         allowNull: false,
         type: Sequelize.STRING,
-      },
-      link_url: {
-        allowNull: true,
-        type: Sequelize.TEXT,
       },
     });
-    return Products;
+    return Comparison;
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('products');
+    await queryInterface.dropTable('comparison');
   },
 };

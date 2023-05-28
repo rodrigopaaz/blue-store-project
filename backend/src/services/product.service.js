@@ -1,5 +1,5 @@
 const {
-  Product, Search, Category, Site,
+  Product, Search,
 } = require('../models');
 const { buscapeData } = require('./data');
 
@@ -7,24 +7,23 @@ const findAll = () => {
   const data = Product.findAll({
     include: [
       { model: Search, as: 'search' },
-      { model: Category, as: 'categoryName' },
-      { model: Site, as: 'siteName' },
     ],
   });
   return data;
 };
 
-const retryBuscapeData = async (category, search) => {
-  const buscape = await buscapeData(category, search);
+const retryBuscapeData = async (category, search, schData) => {
+  const buscape = await buscapeData(category, search, schData);
 
   switch (buscape.length) {
     case 0:
       return retryBuscapeData(category, search);
     default:
+      await Product.bulkCreate(buscape);
       return JSON.stringify(buscape);
   }
 };
-const createMany = async (category, search) => retryBuscapeData(category, search);
+const createMany = async (category, search, schData) => retryBuscapeData(category, search, schData);
 
 module.exports = {
   createMany,

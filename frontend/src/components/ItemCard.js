@@ -15,7 +15,7 @@ export default function ItemCard (item) {
   const history = useHistory()
 
   const compareLink = (link) => {
-    if (!link.length) return 'ir a página '
+    if (!link) return 'ir a página ' // link.length
     const message = `Compare entre ${link.length} vendedores`
     return <>{message} <FaExternalLinkAlt /></>
   }
