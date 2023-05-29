@@ -14,35 +14,34 @@ const findAll = async () => {
   return data;
 };
 
-const retryBuscapeData = async (category, search, schData) => {
-  const buscape = await buscapeData(category, search, schData);
-  if (buscape.length === 0) {
-    return retryBuscapeData(category, search);
-  }
-
+const retryBuscapeData = async (category, search) => {
+  const buscape = await buscapeData(category, search);
   const transaction = await Product.sequelize.transaction();
 
-  try {
-    const result = await Promise.all(buscape.map(async (item) => {
-      const data = await Product.create(item, { transaction });
+  if (buscape.length > 0) {
+    try {
+      const result = await Promise.all(buscape.map(async (item) => {
+        const data = await Product.create(item, { transaction });
 
-      if (item.products) {
-        const products = await Comparison.bulkCreate(item.products, { transaction });
-        await ComparisonProducts.bulkCreate(products.map((p) => (
-          { productId: data.id, comparisonId: p.id })), { transaction });
-        return { ...data.dataValues, products };
-      }
+        if (item.products) {
+          const products = await Comparison.bulkCreate(item.products, { transaction });
+          await ComparisonProducts.bulkCreate(products.map((p) => (
+            { productId: data.id, comparisonId: p.id })), { transaction });
+          return { ...data.dataValues, products };
+        }
 
-      return data;
-    }));
+        return data;
+      }));
 
-    await transaction.commit();
+      await transaction.commit();
 
-    return JSON.stringify(result);
-  } catch (error) {
-    await transaction.rollback();
-    throw error;
+      return JSON.stringify(result);
+    } catch (error) {
+      await transaction.rollback();
+      throw error;
+    }
   }
+  return retryBuscapeData(category, search);
 };
 
 const createMany = async (category, search, schData) => retryBuscapeData(category, search, schData);

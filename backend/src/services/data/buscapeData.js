@@ -1,7 +1,11 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
+const { Search } = require('../../models');
 
-const buscapeProducts = async (category, search, { id }) => {
+const buscapeProducts = async (category, search) => {
+  const { id } = await Search.create({
+    description: search,
+  });
   const buscapeCategory = category ? `search?q=${category} ${search}` : `search?q=${search}`;
   const siteUrl = 'https://buscape.com.br';
   const { data } = await axios.get(`${siteUrl}/${buscapeCategory}`);
