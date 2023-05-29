@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import Header from '../components/Header'
 import { cartRem, getCart } from '../utils/localStorage'
+import { MdCancel } from 'react-icons/md'
+import { FaExternalLinkAlt } from 'react-icons/fa'
+import { AiFillCheckCircle } from 'react-icons/ai'
 import '../styles/cart.css'
+import Footer from '../components/Footer'
 
 export default function Cart () {
   const [items, setItems] = useState([])
@@ -38,26 +42,26 @@ export default function Cart () {
               <td>{item.price}</td>
               <td><button
               onClick={() => removeAndUpdateCart(item)}
-              >Remove</button></td>
-              <td><a href={item.linkUrl} target='_blank' rel="noreferrer">Ir</a></td>
+              >{<MdCancel color='red' size={20}/>}</button></td>
+              <td><a href={item.linkUrl} target='_blank' rel="noreferrer">{<FaExternalLinkAlt color='rgb(11, 55, 80)'/>}</a></td>
               <td><button
                onClick={() => removeAndUpdateCart(item)}
-              >concluído</button></td>
+              >{<AiFillCheckCircle color='green' size={20}/>}</button></td>
               </tr>
         )}
+        </tbody>
         <tfoot>
           <tr>
-            <td>Total: </td>
             <td>
-            {items.reduce((acc, curr) => {
+            {`Total: ${items.reduce((acc, curr) => {
               return acc + Number((curr.price.split('R$')[1].replace('.', '').replace(',', '.')))
-            }, 0).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+            }, 0).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`}
             </td>
           </tr>
         </tfoot>
-        </tbody>
         </table>
         </div>
+        <Footer />
     </div>
   )
 }

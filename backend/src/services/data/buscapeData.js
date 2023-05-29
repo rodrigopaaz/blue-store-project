@@ -1,7 +1,11 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
+const { Search } = require('../../models');
 
 const buscapeProducts = async (category, search) => {
+  const { id } = await Search.create({
+    description: search,
+  });
   const buscapeCategory = category ? `search?q=${category} ${search}` : `search?q=${search}`;
   const siteUrl = 'https://buscape.com.br';
   const { data } = await axios.get(`${siteUrl}/${buscapeCategory}`);
@@ -15,6 +19,7 @@ const buscapeProducts = async (category, search) => {
         .find('a .SearchCard_ProductCard_Description__fGXI3 .Text_Text__h_AF6.Text_MobileHeadingS__Zxam2')
         .text(),
       linkUrl: !getLink.includes('buscape') ? siteUrl + getLink : getLink,
+      searchId: id,
     };
     allProducts.push(product);
   });

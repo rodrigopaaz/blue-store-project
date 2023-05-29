@@ -67,12 +67,13 @@ export default function Header () {
           </div>
         }
       </div>
+      <div className='search__header'>
       <div className='div__header__inputs'>
       <button
       className='logo__button'
       onClick={() => history.push('/')}
       />
-      <p className='lupa__icon'><VscSearch size={30}/></p>
+      <p className='lupa__icon'><VscSearch size={20}/></p>
       <label type="text">
         <input
           placeholder="Digite o que procura"
@@ -105,6 +106,7 @@ export default function Header () {
       >
        <BsCartPlus size={30}/>
       </button>
+      </div>
       </div>
     </div>
     </div>

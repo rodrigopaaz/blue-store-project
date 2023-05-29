@@ -14,3 +14,9 @@ display: flex;
 font-size: 20px;
 margin: 15px 0 0 15px;
 }
+
+.splide__slide{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

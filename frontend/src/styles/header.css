@@ -9,7 +9,7 @@
 
 .div__header{
     display: flex;
-    width: 1280px;
+    width: 1200px;
     align-items: center;
     justify-content: space-between;
     height: 80px;
@@ -17,8 +17,9 @@
 
 .div__header__inputs {
   display: flex;
+  justify-content: space-evenly;
   align-items: center;
-  width: 900px;
+  width: 100%;
   height: 80px;
 }
 
@@ -31,12 +32,12 @@
 
 
 .div__header__inputs input{
-    width: 450px;
-    height: 60px;
+    width: 350px;
+    height: 40px;
     border: none;
     padding: 12px 20px;
     margin: 8px 0;
-    font-size: 20px;
+    font-size: 15px;
     color: rgb(56, 56, 56);
     box-sizing: border-box;
 }
@@ -47,7 +48,7 @@
 }
 
 input::placeholder{
-  font-size: 20px;
+  font-size: 16px;
 }
 
   .div__header button, .login__container {
@@ -76,7 +77,6 @@ input::placeholder{
   .div__header div .login__container{
     align-items: flex-start;
     justify-content: flex-start;
-    margin: 15px;
   }
 
   .div__header div:first-child{
@@ -91,28 +91,37 @@ input::placeholder{
 
   .div__header__inputs .cart__button{
     background-color: #0b3750;
+    position: fixed;
+    z-index: 999;
+    bottom: 10px;
+    right: 70px;
     border-radius: 100px;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     font-size: 30px;
+    box-shadow: 1px 1px 10px white;
   }
 
   .div__header__inputs .fav__button{
     display: flex;
+    position: fixed;
+    z-index: 999;
+    bottom: 10px;
+    right: 15px;
     flex-direction: column;
     background-color:#0b3750;
-    margin: 10px;
     border-radius: 100px;
-    width: 7em;
-    height: 60px;
-    font-size: 10px;
+    width: 50px;
+    height: 50px;
+    font-size: 7px;
+    box-shadow: 1px 1px 10px white;
 }
 
   .div__header__inputs .search__button{
     background-color: #105177;
     font-weight: 900;
-    font-size: 20px;
-    height: 60px;
+    font-size: 12px;
+    height: 40px;
     border: none;
     width: 4em;
     border-top-right-radius: 50px;
@@ -124,8 +133,8 @@ input::placeholder{
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 6em;
-    height: 60px;
+    width: 4em;
+    height: 40px;
     border: none;
     color: #006494;
     background-color: white;
@@ -163,9 +172,11 @@ input::placeholder{
   }
 
    .div__header .logo__button{
-    width: 65px;
+    position: absolute;
+    right: 50%;
+    width: 50px;
     height: 50px;
     background-image: url('../images/logo.png');
-    background-size: contain;
+    background-size: cover;
     border-radius: 50px;
   }

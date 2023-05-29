@@ -14,9 +14,10 @@ function Main () {
   const lowestPrice = products.sort((a, b) => a.price - b.price)
   console.log(lowestPrice, 'safoisanfdin')
   return (
-      <div className="div__search">
+      <div className="div__main__search">
       <Header />
       <Categories />
+      <div className='div__search'>
       <div className='div__search__products'>
       {!isLoading
         ? (
@@ -25,6 +26,7 @@ function Main () {
         : (
         <Loading />
           )}
+          </div>
           </div>
           <Footer />
     </div>

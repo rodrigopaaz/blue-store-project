@@ -12,20 +12,10 @@ module.exports = {
         type: Sequelize.STRING,
       },
       category_id: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.INTEGER,
         references: {
           model: 'categories',
-          key: 'id',
-        },
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE',
-      },
-      site_id: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'sites',
           key: 'id',
         },
         onDelete: 'CASCADE',
@@ -46,7 +36,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       image_url: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.STRING,
       },
       link_url: {
