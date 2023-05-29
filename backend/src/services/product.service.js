@@ -16,22 +16,26 @@ const findAll = async () => {
 
 const retryBuscapeData = async (category, search) => {
   const buscape = await buscapeData(category, search);
-  const transaction = await Product.sequelize.transaction();
 
   if (buscape.length > 0) {
+    const transaction = await Product.sequelize.transaction();
+
     try {
-      const result = await Promise.all(buscape.map(async (item) => {
+      const promises = buscape.map(async (item) => {
         const data = await Product.create(item, { transaction });
 
         if (item.products) {
           const products = await Comparison.bulkCreate(item.products, { transaction });
           await ComparisonProducts.bulkCreate(products.map((p) => (
-            { productId: data.id, comparisonId: p.id })), { transaction });
+            { productId: data.id, comparisonId: p.id }
+          )), { transaction });
           return { ...data.dataValues, products };
         }
 
         return data;
-      }));
+      });
+
+      const result = await Promise.all(promises);
 
       await transaction.commit();
 
@@ -41,7 +45,8 @@ const retryBuscapeData = async (category, search) => {
       throw error;
     }
   }
-  return retryBuscapeData(category, search);
+
+  return JSON.stringify(buscape);
 };
 
 const createMany = async (category, search, schData) => retryBuscapeData(category, search, schData);
