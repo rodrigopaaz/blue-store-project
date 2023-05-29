@@ -2,7 +2,7 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('comparison_product', {
       comparison_id: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.INTEGER,
         references: {
           model: 'comparison',
@@ -13,7 +13,7 @@ module.exports = {
         onUpdate: 'CASCADE',
       },
       product_id: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.INTEGER,
         references: {
           model: 'products',
@@ -23,14 +23,10 @@ module.exports = {
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
       },
-      quantity: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-      },
     });
   },
 
   async down(queryInterface, _Sequelize) {
-    await queryInterface.dropTable('sales_products');
+    await queryInterface.dropTable('comparison_product');
   },
 };

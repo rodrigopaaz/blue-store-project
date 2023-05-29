@@ -11,15 +11,13 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING,
       },
+      product_img: {
+        allowNull: true,
+        type: Sequelize.STRING,
+      },
       company: {
         allowNull: true,
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'search',
-          key: 'id',
-        },
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE',
+        type: Sequelize.STRING,
       },
       company_img: {
         allowNull: false,
