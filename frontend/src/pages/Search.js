@@ -10,9 +10,6 @@ import Footer from '../components/Footer'
 
 function Main () {
   const { products, isLoading } = useContext(AppContext)
-  console.log(products)
-  const lowestPrice = products.sort((a, b) => a.price - b.price)
-  console.log(lowestPrice, 'safoisanfdin')
   return (
       <div className="div__main__search">
       <Header />

@@ -1,5 +1,5 @@
 const {
-  ComparisonProducts, Comparison, Product, Search,
+  Comparison, Product, Search,
 } = require('../models');
 const { buscapeData } = require('./data');
 
@@ -18,46 +18,27 @@ const retryBuscapeData = async (category, search, schData) => {
   const buscape = await buscapeData(category, search, schData);
 
   if (buscape.length > 0) {
-    const transaction = await Product.sequelize.transaction();
-
     try {
-      const promises = buscape.map(async (item) => {
-        const data = await Product.create(item, { transaction });
-
-        if (item.products) {
-          const products = await Comparison.bulkCreate(item.products, { transaction });
-
-          const comparisonProducts = products.map((p) => ({
-            productId: data.id,
-            comparisonId: p.id,
-          }));
-
-          await ComparisonProducts.bulkCreate(comparisonProducts, { transaction });
-
-          return { ...data.dataValues, products };
-        }
-
-        return data;
+      const promise = buscape.map(async (p, i) => {
+        const { id } = await Product.create(p);
+        return { id, ...buscape[i] };
       });
 
-      const result = await Promise.allSettled(promises);
+      const products = await Promise.all(promise);
 
-      const rejectedPromises = result.filter((p) => p.status === 'rejected');
+      /*       if (item.products) {
+          const products = await Comparison.bulkCreate(item.products, { transaction });
+          await ComparisonProducts.bulkCreate(products.map((p) => (
+            { productId: data.id, comparisonId: p.id })), { transaction });
+          return { ...data.dataValues, products };
+        } */
 
-      if (rejectedPromises.length > 0) {
-        throw new Error('Ocorreu um erro ao processar os itens do buscape.');
-      }
-
-      await transaction.commit();
-
-      return JSON.stringify(result.map((p) => p.value));
+      return JSON.stringify(products);
     } catch (error) {
-      await transaction.rollback();
-      throw error;
+      return [];
     }
   }
-
-  return JSON.stringify(buscape);
+  return retryBuscapeData(category, search);
 };
 
 const createMany = async (category, search, schData) => retryBuscapeData(category, search, schData);
