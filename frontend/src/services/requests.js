@@ -7,6 +7,18 @@ const post = async (category, search, host) => {
       category,
       search
     })
+    const parsedData = JSON.parse(data)
+    if (!parsedData[0].search) {
+      console.log('entrou no if', parsedData)
+      parsedData.forEach(async (items) => {
+        await Axios.post(`${setHost}/comparison`, {
+          items
+        })
+      })
+
+      return parsedData
+    }
+
     return JSON.parse(data)
   } catch (error) {
     return []

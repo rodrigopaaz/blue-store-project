@@ -10,7 +10,6 @@ export default function Footer () {
     setIsLoading
   } = useContext(AppContext)
   const getProducts = async (value) => {
-    console.log(value)
     setIsLoading(true)
     const host = process.env.REACT_APP_HOST
     const data = await post(null, value, host)
