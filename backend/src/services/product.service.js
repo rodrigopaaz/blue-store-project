@@ -19,25 +19,16 @@ const retryBuscapeData = async (category, search, schData) => {
 
   if (buscape.length > 0) {
     try {
-      const promise = buscape.map(async (p, i) => {
-        const { id } = await Product.create(p);
-        return { id, ...buscape[i] };
-      });
+      const createdProducts = await Product.bulkCreate(buscape, { returning: true });
 
-      const products = await Promise.all(promise);
-
-      /*       if (item.products) {
-          const products = await Comparison.bulkCreate(item.products, { transaction });
-          await ComparisonProducts.bulkCreate(products.map((p) => (
-            { productId: data.id, comparisonId: p.id })), { transaction });
-          return { ...data.dataValues, products };
-        } */
+      const products = createdProducts.map((product, i) => ({ id: product.id, ...buscape[i] }));
 
       return JSON.stringify(products);
     } catch (error) {
       return [];
     }
   }
+
   return retryBuscapeData(category, search);
 };
 

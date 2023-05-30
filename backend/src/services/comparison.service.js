@@ -4,11 +4,25 @@ const {
 } = require('../models');
 
 const create = async (items) => {
-  console.log(items, 'items'); // recebe um array de produtos de comparação
-  const products = await Comparison.bulkCreate(items.products);
-  console.log(products, 'products');
-  await ComparisonProducts.bulkCreate(products.map((p) => (
-    { productId: items.id, comparisonId: p.id })));
+  const transaction = await Comparison.sequelize.transaction();
+
+  try {
+    const createdProducts = await Comparison.bulkCreate(
+      items.products,
+      { transaction, returning: true },
+    );
+    const comparisonProducts = createdProducts.map((p) => ({
+      productId: items.id,
+      comparisonId: p.id,
+    }));
+
+    await ComparisonProducts.bulkCreate(comparisonProducts, { transaction });
+
+    await transaction.commit();
+  } catch (error) {
+    await transaction.rollback();
+    throw error;
+  }
 };
 
 module.exports = {
