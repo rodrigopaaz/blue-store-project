@@ -3,7 +3,6 @@ const searchService = require('./search.service');
 const productService = require('./product.service');
 const userService = require('./user.service');
 const comparisonService = require('./comparison.service');
-const comparisonProductsService = require('./comparisonProducts.service');
 const { loginService } = require('./login.service');
 
 module.exports = {
@@ -13,5 +12,4 @@ module.exports = {
   userService,
   loginService,
   comparisonService,
-  comparisonProductsService,
 };
