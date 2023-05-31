@@ -72,15 +72,9 @@ const buscapeProducts = async (category, search) => {
     }
   };
 
-  const limitReturn = () => {
-    const limitedProducts = filteredProducts.slice(0, 16);
-    if (limitReturn.length <= 16) return limitedProducts;
-    return limitReturn();
-  };
+  const limitedProducts = filteredProducts.slice(0, 16);
 
-  const getProducts = limitReturn();
-
-  const productData = await Promise.all(getProducts.map(getProductData));
+  const productData = await Promise.all(limitedProducts.map(getProductData));
 
   return productData;
 };
