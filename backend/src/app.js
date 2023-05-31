@@ -11,7 +11,7 @@ app.use((req, res, next) => {
 
 const {
   categoryRouter, productRouter, searchRouter, userRouter,
-  loginRouter, comparisonRouter, comparisonProductsRouter,
+  loginRouter, comparisonRouter,
 } = require('./routes');
 
 app.use('/category', categoryRouter);
@@ -20,6 +20,5 @@ app.use('/search', searchRouter);
 app.use('/user', userRouter);
 app.use('/login', loginRouter);
 app.use('/comparison', comparisonRouter);
-app.use('/comparison-products', comparisonProductsRouter);
 
 module.exports = app;
