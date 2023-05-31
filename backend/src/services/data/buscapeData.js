@@ -2,7 +2,7 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 const { Search } = require('../../models');
 
-const MAX_RETRY_ATTEMPTS = 5;
+const MAX_RETRY_ATTEMPTS = 3;
 
 const buscapeProducts = async (category, search) => {
   const { id } = await Search.create({
@@ -32,7 +32,7 @@ const buscapeProducts = async (category, search) => {
 
   const getProductData = async (product, attempt = 1) => {
     try {
-      const fileData = await axios.get(product.linkUrl);
+      const fileData = await axios.get(product.linkUrl, { timeout: 5000 });
       const $$ = cheerio.load(fileData.data);
       const productsList = [];
       const imageSrc = $$('.ProductPageBody_ContentBody__De_1M')
@@ -72,7 +72,10 @@ const buscapeProducts = async (category, search) => {
     }
   };
 
-  const productData = await Promise.all(filteredProducts.map(getProductData));
+  const limitedProducts = filteredProducts.slice(0, 10);
+
+  const productData = await Promise.all(limitedProducts.map(getProductData));
+
   return productData;
 };
 
