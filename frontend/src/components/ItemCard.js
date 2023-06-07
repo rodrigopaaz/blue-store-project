@@ -11,7 +11,7 @@ import { cartAdd, cartRem, favAdd, favRem, getCart, getFav } from '../utils/loca
 export default function ItemCard (item) {
   const { product } = item
   const { products: compareBetterPrice } = product
-  const { setBetterPrice } = useContext(AppContext)
+  const { setBetterPrice, user, setBlock } = useContext(AppContext)
   const history = useHistory()
 
   const compareLink = (link) => {
@@ -41,21 +41,31 @@ export default function ItemCard (item) {
   }, [])
 
   const handleFavorite = () => {
-    !toggleFavorite ? favAdd(product) : favRem(product)
-    setToggleFavorite(!toggleFavorite)
+    if (user.token) {
+      !toggleFavorite ? favAdd(product) : favRem(product)
+      setToggleFavorite(!toggleFavorite)
+    } else {
+      return setBlock(true)
+    }
   }
 
   const handleCart = () => {
-    !toggleCart ? cartAdd(product) : cartRem(product)
-    setToggleCart(!toggleCart)
+    if (user.token) {
+      !toggleCart ? cartAdd(product) : cartRem(product)
+      setToggleCart(!toggleCart)
+    } else {
+      return setBlock(true)
+    }
   }
 
   return (
     <div className="div__item__card"
+    title={product.title}
     onMouseEnter={ () => { setToggleCardMenu(true) }}
     onMouseLeave={ () => { setToggleCardMenu(false) }}
     >
-      <div className='card__menu__div'>
+      <div className='card__menu__div'
+      >
         <button
         type='button'
         onClick={() => handleFavorite()}

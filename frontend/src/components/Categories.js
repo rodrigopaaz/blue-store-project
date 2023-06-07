@@ -8,7 +8,7 @@ import { useHistory } from 'react-router-dom'
 
 export default function Categories () {
   const host = process.env.REACT_APP_HOST
-  const { setProducts, setIsLoading } = useContext(AppContext)
+  const { setProducts, setIsLoading, block } = useContext(AppContext)
   const [category, setCategory] = useState([])
   const history = useHistory()
   const getCategory = async () => {
@@ -31,7 +31,9 @@ export default function Categories () {
     getCategory()
   }, [])
   return (
-    <div className='div__main__category'>
+    <div className='div__main__category'
+    style={block ? { filter: 'blur(8px)' } : null}
+    >
     <Splide options={ {
       wheel: true,
       rewind: true,

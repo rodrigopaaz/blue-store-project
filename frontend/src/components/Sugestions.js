@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import post from '../services/requests'
 import ItemCard from './ItemCard'
 import Loading from './Loading'
 import '../styles/sugestion.css'
 import { Splide, SplideSlide } from '@splidejs/react-splide'
+import AppContext from '../context/Context'
 
 export default function Sugestions ({ title, path, background, titleColor }) {
+  const { block } = useContext(AppContext)
   const [sugestion, setSugestion] = useState([])
   const getProducts = async () => {
     const host = process.env.REACT_APP_HOST
@@ -19,7 +21,8 @@ export default function Sugestions ({ title, path, background, titleColor }) {
     getProducts()
   }, [])
   return (
-    <div className='div__main__sugestion' style={divBackground}>
+    <div className='div__main__sugestion'
+    style={block ? { ...divBackground, filter: 'blur(8px)' } : { ...divBackground }}>
         {sugestion.length > 0
           ? (
                 <div>

@@ -16,12 +16,14 @@ export default function Header () {
     setIsLoading,
     search,
     setSearch,
-    user
+    user,
+    setBlock,
+    block
   } = useContext(AppContext)
 
   const [menu, setMenu] = useState(false)
 
-  const toogleMenu = () => {
+  const toggleMenu = () => {
     setMenu(!menu)
   }
 
@@ -33,82 +35,94 @@ export default function Header () {
     setIsLoading(false)
     history.push('/search')
   }
-
   const history = useHistory()
 
+  const isLogged = (path) => {
+    if (user.token) {
+      history.push(path)
+    }
+    return setBlock(true)
+  }
+
   return (
-    <div className='main__div__header'>
-    <div className="div__header">
-      <div>
-      {!user.token && <div
-      className='login__container'
-      onMouseEnter={toogleMenu}
-      onMouseLeave={toogleMenu}
-      >
-        <AiOutlineUser size={43} style={{ height: '45px' }}/>
+    <div className='main__div__header'
+    style={block ? { filter: 'blur(8px)' } : null}
+    >
+      <div className='div__header'>
         <div>
-        <p>Entre ou Cadastre-se</p>
-        <p>Minha Conta</p>
-        <div className='login__menu' style={!menu ? { height: '0' } : { height: '80px' } }>
-          <button
-          type='button'
-          onClick={() => history.push('/login')}
-          >Acesse sua conta</button>
-          <button
-             type='button'
-             onClick={() => history.push('/register')}
-          >Cadastre-se</button>
+          {!user.token && (
+            <div
+              className='login__container'
+              onMouseEnter={toggleMenu}
+              onMouseLeave={toggleMenu}
+            >
+              <AiOutlineUser size={43} style={{ height: '45px' }} />
+              <div>
+                <p>Entre ou Cadastre-se</p>
+                <p>Minha Conta</p>
+                <div
+                  className='login__menu'
+                  style={!menu ? { height: '0' } : { height: '80px' }}
+                >
+                  <button type='button' onClick={() => history.push('/login')}>
+                    Acesse sua conta
+                  </button>
+                  <button type='button' onClick={() => history.push('/register')}>
+                    Cadastre-se
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+          {user.token && (
+            <div className='login__menu'>
+              <p>{user.name}</p>
+            </div>
+          )}
         </div>
-        </div>
-      </div>}
-        {user.token &&
-          <div className='login__menu'>
-            <p>{user.name}</p>
+        <div className='search__header'>
+          <div className='div__header__inputs'>
+            <button className='logo__button' onClick={() => history.push('/')} />
+            <p className='lupa__icon'>
+              <VscSearch size={20} />
+            </p>
+            <label type='text'>
+              <input
+                placeholder='Digite o que procura'
+                type='text'
+                onChange={({ target: { value } }) => setSearch(value)}
+                onKeyDown={({ key }) => {
+                  if (key === 'Enter') getProducts()
+                }}
+              />
+            </label>
+            <button
+              className='search__button'
+              type='button'
+              onClick={() => {
+                getProducts()
+              }}
+            >
+              OK
+            </button>
+            <button type='button'
+            className='fav__button'
+            title='Faça login ou cadastre-se para utilizar esta funcionalidade'
+            onClick={() => isLogged('/favorites')}>
+              <ImHeart size={20} color='white' /> <p>Favoritos</p>
+            </button>
+
+            <button
+              className='cart__button'
+              type='button'
+              onClick={() => isLogged('/cart')}
+              title='Faça login ou cadastre-se para utilizar esta funcionalidade'
+            >
+              <BsCartPlus size={30} />
+            </button>
           </div>
-        }
+        </div>
       </div>
-      <div className='search__header'>
-      <div className='div__header__inputs'>
-      <button
-      className='logo__button'
-      onClick={() => history.push('/')}
-      />
-      <p className='lupa__icon'><VscSearch size={20}/></p>
-      <label type="text">
-        <input
-          placeholder="Digite o que procura"
-          type="text"
-          onChange={({ target: { value } }) => setSearch(value)}
-          onKeyDown={({ key }) => { if (key === 'Enter') getProducts() }}
-        />
-      </label>
-      <button
-        className='search__button'
-        type="button"
-        onClick={() => {
-          getProducts()
-        }}
-      >
-        OK
-      </button>
-      <button
-      type='button'
-      className='fav__button'
-      onClick={() => history.push('/favorites')}
-      ><ImHeart size={20} color='white'/> <p>Favoritos</p>
-
-      </button>
-
-      <button
-      className='cart__button'
-      type='button'
-      onClick={() => history.push('/cart')}
-      >
-       <BsCartPlus size={30}/>
-      </button>
-      </div>
-      </div>
-    </div>
     </div>
   )
 }
