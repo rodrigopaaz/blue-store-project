@@ -9,6 +9,7 @@ export default function AppProvider ({ children }) {
   const [site, setSite] = useState(null)
   const [betterPrice, setBetterPrice] = useState([])
   const [user, setUser] = useState({})
+  const [block, setBlock] = useState(false)
   const data = useMemo(
     () => ({
       products,
@@ -24,7 +25,9 @@ export default function AppProvider ({ children }) {
       setBetterPrice,
       betterPrice,
       user,
-      setUser
+      setUser,
+      block,
+      setBlock
     }),
     [
       products,
@@ -40,7 +43,9 @@ export default function AppProvider ({ children }) {
       betterPrice,
       setBetterPrice,
       user,
-      setUser
+      setUser,
+      block,
+      setBlock
     ]
   )
 
