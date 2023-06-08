@@ -39,7 +39,7 @@ export default function Header () {
 
   const isLogged = (path) => {
     if (user.token) {
-      history.push(path)
+      return history.push(path)
     }
     return setBlock(true)
   }
