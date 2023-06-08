@@ -180,3 +180,10 @@ input::placeholder{
     background-size: cover;
     border-radius: 50px;
   }
+
+  .login__menu p{
+    height: 50px;
+    font-size: 40px;
+    text-transform: capitalize;
+    color: #105177;
+  }
