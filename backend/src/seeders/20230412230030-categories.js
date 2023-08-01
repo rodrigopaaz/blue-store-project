@@ -22,7 +22,7 @@ module.exports = {
         }, {
           id: 5,
           name: 'smartphones',
-          image: 'https://imgs.casasbahia.com.br/55058275/1g.jpg',
+          image: 'https://5.imimg.com/data5/NN/PW/XN/SELLER-8587078/11-500x500.jpg',
         }, {
           id: 6,
           name: 'iphone',
