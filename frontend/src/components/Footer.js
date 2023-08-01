@@ -3,8 +3,10 @@ import '../styles/footer.css'
 import brands from '../utils/brands'
 import AppContext from '../context/Context'
 import post from '../services/requests'
+import { useHistory } from 'react-router-dom'
 
 export default function Footer () {
+  const history = useHistory()
   const {
     setProducts,
     setIsLoading
