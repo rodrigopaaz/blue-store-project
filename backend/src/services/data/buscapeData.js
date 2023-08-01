@@ -13,7 +13,7 @@ const buscapeProducts = async (category, search) => {
   const { data } = await axios.get(`${siteUrl}/${buscapeCategory}`);
   const $ = cheerio.load(data);
   const allProducts = [];
-  $('.col-lg-9 .Hits_Wrapper__3q_7P .Paper_Paper__HIHv0').each((e, i) => {
+  $('.SearchPageContent_SearchPageContent__Af_zP .Hits_Wrapper__GHrC6 .Paper_Paper__HIHv0').each((e, i) => {
     const getLink = $(i).find('.SearchCard_ProductCard_Inner__7JhKb').attr('href') || '';
     const product = {
       title: $(i).find('a h2').text(),
