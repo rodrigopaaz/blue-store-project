@@ -2,6 +2,13 @@ const express = require('express');
 
 const app = express();
 app.use(express.json());
+app.use(cors());
+
+
+app.use(cors({
+  origin: ['https://blue-store-project-as3i.vercel.app/', 'https://blue-store-project-as3i-gla7jnwr1-rodrigopaaz.vercel.app/'],
+  methods: 'POST',
+}));
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
