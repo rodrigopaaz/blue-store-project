@@ -22,7 +22,7 @@ module.exports = {
         }, {
           id: 5,
           name: 'smartphones',
-          image: 'https://images.kabum.com.br/produtos/fotos/429425/smartphone-samsung-galaxy-a14-4g-128gb-4gb-ram-octa-core-camera-tripla-de-50mp-tela-de-6-6-preto-sm-a145mzkrzto_1677711429_original.jpg',
+          image: 'https://imgs.casasbahia.com.br/55058275/1g.jpg',
         }, {
           id: 6,
           name: 'iphone',
